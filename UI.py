@@ -1,3 +1,4 @@
+from PySide6 import QtGui
 from Meet import *
 import sys
 from PySide6.QtCore import QLine
@@ -10,9 +11,19 @@ class Form(QDialog):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
         # Create widgets
+
+        # Email
         self.Email = QLineEdit("Enter Email ID")
+       
+        
+        # Password
         self.Passw = QLineEdit("Password")
+        self.Passw.setEchoMode(QLineEdit.Password)
+
+        # Url
         self.Url = QLineEdit("Meet URL")
+
+
         self.button = QPushButton("Submit")
         # Create layout and add widgets
         layout = QVBoxLayout()
@@ -27,4 +38,6 @@ class Form(QDialog):
 
     # Greets the user
     def greetings(self):
-        Meet(self.Email.text(), self.Passw.text(), self.Url.text()).Join()
+
+        if self.Email.text() and self.Passw.text() and self.Url.text():
+            Meet(self.Email.text(), self.Passw.text(), self.Url.text()).Join()
