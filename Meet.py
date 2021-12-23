@@ -17,6 +17,10 @@ class Meet(object):
 
     def __init__(self, email,passw,url):
         
+        
+        if not "https:" in url:
+            url = "https://meet.google.com/"+url
+        
         self._url = url
         self._gmail = GmailLogin(email=email, passw=passw)
 
