@@ -4,8 +4,9 @@
  This Project is my work for attending Morning Class .
 
  Features yet To add:
- 
- 1. Join Using Meet Code.
+
+ 1. Join Using Meet Code. <img src="https://user-images.githubusercontent.com/76484161/147214825-80fbce9a-8cc2-4165-b787-31077ee8cd3b.png" height="20" width="20" >
+
  2. Record Class.
  3. Join Class Automatically in Given Time.
  4. UI Improvement. (UI is Just prototype.)
