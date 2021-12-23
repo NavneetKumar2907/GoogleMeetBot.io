@@ -1,7 +1,19 @@
 from Gmaillogin import *
 
 class Meet(object):
-    """To join Meet"""
+    
+    """To join Meet
+    Attributes
+    ...................
+    _url: String
+        Meet Link
+    
+    _gmail: GmailLogin Object
+    
+    _driver: Chrome Webdriver
+            To Control webpage
+    
+    """
 
     def __init__(self, email,passw,url):
         

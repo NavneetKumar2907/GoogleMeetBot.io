@@ -14,14 +14,19 @@ class GmailLogin(object):
     """Login to gmail account.
     
     Attributes:
-    
-    _driver:
-
-    
-    Parameter:
     ...........................
-    _email:
-    _passw:
+    
+    _driver: Chrome Driver
+            To COntrol the Webpages.
+
+    _email: String 
+            Email id to login in Gmail Account.
+
+    _passw: String
+            Password to login in Gmail Account.
+    
+    _url: String
+            Gmail Link
     """
 
     def __init__(self, email, passw):
@@ -30,22 +35,28 @@ class GmailLogin(object):
 
         self._url = "https://www.gmail.com"
 
-       
-
-
     def login(self):
+        """To login in Gmail."""
 
-        
-        Cop = ChromeOptions()
+        Cop = ChromeOptions() # To add Arguments.
+
         Cop.add_argument('use-fake-ui-for-media-stream')
         Cop.add_experimental_option('detach', True)
         Cop.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
         
-
-        self._driver = webdriver.Chrome(options= Cop, executable_path="chromedriver.exe")
+        try:
+            self._driver = webdriver.Chrome(options= Cop, executable_path="chromedriver.exe")
+        except:
+            Cop.binary_location = r"C:\Program Files(x86)\Google\Chrome\Application\chrome.exe"
+            self._driver = webdriver.Chrome(options= Cop, executable_path="chromedriver.exe")
         
         self._driver.get(self._url)
-        eId = self._driver.find_element_by_name("identifier")
+        
+        try:
+            eId = self._driver.find_element_by_name("identifier")
+        except:
+            eId = self._driver.find_element_by_name("identifier")
+        
         eId.send_keys(self._email + Keys.ENTER)
 
         self._driver.implicitly_wait(5)
